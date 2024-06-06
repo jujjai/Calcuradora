@@ -97,77 +97,83 @@ double fatorial(double x) {
 
 int main()
 {
-	char operador;
+	int operador;
 	double x, y, resultado;
 
 	setlocale(LC_CTYPE, "pt-PT");
 
 	printf("Calculadora Simples\n"
-		"a) Adição\n"
-		"b) Subtração\n"
-		"c) Multiplicação\n"
-		"d) Divisão\n"
-		"e) Raízes quadradas\n"
-		"f) Quadrado\n"
-		"g) Fatorial de qualquer número\n"
-		"h) Sair\n\n");
-		printf("Escolha a letra referente à operação que quer fazer: ");
-		scanf_s("%c", &operador);
+		"1) Adição\n"
+		"2) Subtração\n"
+		"3) Multiplicação\n"
+		"4) Divisão\n"
+		"5) Raízes quadradas\n"
+		"6) Quadrado\n"
+		"7) Fatorial de qualquer número\n"
+		"8) Sair\n\n");
 
-	switch (operador) {
-	case 'a':
-		printf("Soma:\n"
-			"Introduz dois números:\n");
+
+	while (1){
+		printf("Escolha o número referente à operação que quer fazer: ");
+		scanf_s("%d", &operador);
+
+		switch (operador) {
+		case 1:
+			printf("Soma:\n"
+				"Introduz dois números:\n");
 			scanf_s("%lf %lf", &x, &y);
 			resultado = soma(x, y);
-			printf("%.2f + %.2f = %.2f", x, y, resultado);
+			printf("%.2f + %.2f = %.2f\n", x, y, resultado);
 			break;
-		case 'b':
+		case 2:
 			printf("Subtração:\n"
-			"Introduz dois números:\n");
+				"Introduz dois números:\n");
 			scanf_s("%lf %lf", &x, &y);
 			resultado = sub(x, y);
-			printf("%.2f - %.2f = %.2f", x, y, resultado);
+			printf("%.2f - %.2f = %.2f\n", x, y, resultado);
 			break;
-		case 'c':
+		case 3:
 			printf("Multiplicação:\n"
-			"Introduz dois números:\n");
+				"Introduz dois números:\n");
 			scanf_s("%lf %lf", &x, &y);
 			resultado = multi(x, y);
-			printf("%.2f * %.2f = %.2f", x, y, resultado);
+			printf("%.2f * %.2f = %.2f\n", x, y, resultado);
 			break;
-		case 'd':
+		case 4:
 			printf("Divisão:\n"
-			"Introduz dois números:\n");
+				"Introduz dois números:\n");
 			scanf_s("%lf %lf", &x, &y);
 			resultado = div(x, y);
-			printf("%.2f / %.2f = %.2f", x, y, resultado);
+			printf("%.2f / %.2f = %.2f\n", x, y, resultado);
 			break;
-		case 'e':
+		case 5:
 			printf("Raiz quadrada:\n"
-			"Introduz um número:\n");
+				"Introduz um número:\n");
 			scanf_s("%lf", &x);
 			resultado = raiz(x);
-			printf("√%.2f = %.2f", x, resultado);
+			printf("√%.2f = %.2f\n", x, resultado);
 			break;
-		case 'f':
+		case 6:
 			printf("Quadrado:\n"
-			"Introduz um número:\n");
+				"Introduz um número:\n");
 			scanf_s("%lf", &x);
 			resultado = quadrado(x);
-			printf("%.2f^2 = %.2f", x, resultado);
+			printf("%.2f^2 = %.2f\n", x, resultado);
 			break;
-		case 'g':
+		case 7:
 			printf("Fatorial:\n"
-			"Introduz um número:\n");
+				"Introduz um número:\n");
 			scanf_s("%lf", &x);
 			resultado = quadrado(x);
-			printf("%.2f! = %.2f", x, resultado);
+			printf("%.2f! = %.2f\n", x, resultado);
 			break;
-		case 'h':
+		case 8:
 			printf("A sair...\n");
 			return 0;
-	default:
-		printf("Operador inválido. Tente outro.\n");
+			break;
+		default:
+			printf("Operador inválido. Tente outro.\n");
+		}
+
 	}
 }
