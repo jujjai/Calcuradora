@@ -50,6 +50,7 @@ Saida:
 double div(double x, double y) {
 	if (y == 0) {
 		printf("ERRO: Não possivel a divisão por 0.\n");
+		return NAN;
 	}
 	return x / y;
 }
@@ -64,7 +65,7 @@ Saida:
 double raiz(double x) {
 	if (x < 0) {
 		printf("ERRO: Não existe raiz quadrada de um número negativo.\n");
-		return 0;
+		return NAN;
 	}
 	return sqrt(x);
 }
@@ -90,7 +91,7 @@ Saida:
 double fatorial(double x) {
 	if (x < 0) {
 		printf("ERRO: Não existe fatorial de um número negativo.\n");
-		return 0;
+		return NAN;
 	}
 	if (x == 0 || x == 1) {
 		return 1;
@@ -133,17 +134,6 @@ int main()
 	double x, y, resultado;
 
 	setlocale(LC_CTYPE, "pt-PT");
-
-	printf("Calculadora Simples\n"
-		"1) Adição\n"
-		"2) Subtração\n"
-		"3) Multiplicação\n"
-		"4) Divisão\n"
-		"5) Raízes quadradas\n"
-		"6) Quadrado\n"
-		"7) Fatorial de qualquer número\n"
-		"8) Sair\n\n");
-
 
 	while (1){
 		clear();
@@ -193,14 +183,18 @@ int main()
 			x = valor_valido();
 			y = valor_valido();
 			resultado = div(x, y);
-			printf("%.2f / %.2f = %.2f\n", x, y, resultado);
+			if (!isnan(resultado)) {
+				printf("%.2f / %.2f = %.2f\n", x, y, resultado);
+			}
 			break;
 		case 5:
 			printf("Raiz quadrada:\n"
 				"Introduz um número:\n");
 			x = valor_valido();
 			resultado = raiz(x);
-			printf("√%.2f = %.2f\n", x, resultado);
+			if (!isnan(resultado)) {
+				printf("√%.2f = %.2f\n", x, resultado);
+			}
 			break;
 		case 6:
 			printf("Quadrado:\n"
@@ -214,7 +208,9 @@ int main()
 				"Introduz um número:\n");
 			x = valor_valido();
 			resultado = fatorial(x);
-			printf("%.2f! = %.2f\n", x, resultado);
+			if (!isnan(resultado)) {
+				printf("%.2f! = %.2f\n", x, resultado);
+			}
 			break;
 		case 8:
 			printf("\nA sair...\n");
