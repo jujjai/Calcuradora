@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calcuradora", "Calcuradora\Calcuradora.vcxproj", "{0A0963D3-6791-4A91-AA8E-625F0D11EE01}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Project1.vcxproj", "{90E73823-D333-4994-9DF9-65B7CF5A73C3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{0A0963D3-6791-4A91-AA8E-625F0D11EE01}.Release|x64.Build.0 = Release|x64
 		{0A0963D3-6791-4A91-AA8E-625F0D11EE01}.Release|x86.ActiveCfg = Release|Win32
 		{0A0963D3-6791-4A91-AA8E-625F0D11EE01}.Release|x86.Build.0 = Release|Win32
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Debug|x64.ActiveCfg = Debug|x64
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Debug|x64.Build.0 = Debug|x64
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Debug|x86.ActiveCfg = Debug|Win32
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Debug|x86.Build.0 = Debug|Win32
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Release|x64.ActiveCfg = Release|x64
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Release|x64.Build.0 = Release|x64
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Release|x86.ActiveCfg = Release|Win32
-		{90E73823-D333-4994-9DF9-65B7CF5A73C3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
