@@ -1,6 +1,7 @@
 ﻿#include <stdio.h>
 #include <math.h>
 #include <locale.h>
+#include <stdlib.h>
 
 /*
 Soma de dois valores e devolve resultados
@@ -91,8 +92,39 @@ double fatorial(double x) {
 		printf("ERRO: Não existe fatorial de um número negativo.\n");
 		return 0;
 	}
+	if (x == 0 || x == 1) {
+		return 1;
+	}
+	double result = 1;
+	for (int i = 2; i <= x; i++) {
+		result *= i;
+	}
+	return result;
+}
 
-	return 0;
+
+// Limpa o ecrã
+void clear() {
+#if defined(_WIN32) || defined(_WIN64)
+	system("cls");
+#else
+	system("clear");
+#endif
+}
+
+
+// Comfirma se o valor escolhido pelo utilizador é válido.
+double valor_valido() {
+	double valor;
+	while (1) {
+		if (scanf("%lf", &valor) != 1) {
+			printf("ERROR: Caracter inválido. Introduza um número:\n");
+			while (getchar() != '\n'); 
+		}
+		else {
+			return valor;
+		}
+	}
 }
 
 int main()
@@ -114,66 +146,85 @@ int main()
 
 
 	while (1){
+		clear();
+		printf("Calculadora Simples\n"
+			"1) Adição\n"
+			"2) Subtração\n"
+			"3) Multiplicação\n"
+			"4) Divisão\n"
+			"5) Raízes quadradas\n"
+			"6) Quadrado\n"
+			"7) Fatorial de qualquer número\n"
+			"8) Sair\n\n");
+
 		printf("Escolha o número referente à operação que quer fazer: ");
 		scanf_s("%d", &operador);
+
+		clear();
 
 		switch (operador) {
 		case 1:
 			printf("Soma:\n"
 				"Introduz dois números:\n");
-			scanf_s("%lf %lf", &x, &y);
+			x = valor_valido();
+			y = valor_valido();
 			resultado = soma(x, y);
 			printf("%.2f + %.2f = %.2f\n", x, y, resultado);
 			break;
 		case 2:
 			printf("Subtração:\n"
 				"Introduz dois números:\n");
-			scanf_s("%lf %lf", &x, &y);
+			x = valor_valido();
+			y = valor_valido();
 			resultado = sub(x, y);
 			printf("%.2f - %.2f = %.2f\n", x, y, resultado);
 			break;
 		case 3:
 			printf("Multiplicação:\n"
 				"Introduz dois números:\n");
-			scanf_s("%lf %lf", &x, &y);
+			x = valor_valido();
+			y = valor_valido();
 			resultado = multi(x, y);
 			printf("%.2f * %.2f = %.2f\n", x, y, resultado);
 			break;
 		case 4:
 			printf("Divisão:\n"
 				"Introduz dois números:\n");
-			scanf_s("%lf %lf", &x, &y);
+			x = valor_valido();
+			y = valor_valido();
 			resultado = div(x, y);
 			printf("%.2f / %.2f = %.2f\n", x, y, resultado);
 			break;
 		case 5:
 			printf("Raiz quadrada:\n"
 				"Introduz um número:\n");
-			scanf_s("%lf", &x);
+			x = valor_valido();
 			resultado = raiz(x);
 			printf("√%.2f = %.2f\n", x, resultado);
 			break;
 		case 6:
 			printf("Quadrado:\n"
 				"Introduz um número:\n");
-			scanf_s("%lf", &x);
+			x = valor_valido();
 			resultado = quadrado(x);
 			printf("%.2f^2 = %.2f\n", x, resultado);
 			break;
 		case 7:
 			printf("Fatorial:\n"
 				"Introduz um número:\n");
-			scanf_s("%lf", &x);
-			resultado = quadrado(x);
+			x = valor_valido();
+			resultado = fatorial(x);
 			printf("%.2f! = %.2f\n", x, resultado);
 			break;
 		case 8:
-			printf("A sair...\n");
+			printf("\nA sair...\n");
 			return 0;
 			break;
 		default:
 			printf("Operador inválido. Tente outro.\n");
 		}
-
+		printf("\nCarregue Enter para continuar...");
+		while (getchar() != '\n');
+		getchar();
 	}
 }
